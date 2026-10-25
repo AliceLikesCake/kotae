@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>設定</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Source+Serif+4:opsz,wght@8..60,500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2F45A0}a:hover{color:#24398F}
+</style>
+</helmet>
+<div style="width: 390px; height: 1660px; position: relative; box-sizing: border-box; background: {{c.bg}}; font-family: 'Microsoft JhengHei', '微軟正黑體', 'PingFang TC', 'Noto Sans TC', sans-serif; color: {{c.ink}}; overflow: hidden">
+<div style="padding: 48px 24px 40px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<a href="{{homeHref}}" aria-label="返回首頁" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: {{c.ink}}; margin-left: -10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg></a>
+<div style="font-size: 15px; font-weight: 700">設定</div>
+<div style="width: 44px"></div>
+</div>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 13px; color: {{c.muted}}">主題顏色</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<button type="button" aria-pressed="{{isInk}}" onClick="{{pickInk}}" style="padding: 14px; border-radius: 14px; border: {{inkRing}}; background: #F5F2EA; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; cursor: pointer; font-family: inherit">
+<span style="display: flex; gap: 6px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #1F2328; display: block"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #2F45A0; display: block"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #B8432B; display: block"></span></span>
+<span style="font-size: 15px; font-weight: 700; color: #1F2328">米白墨色</span>
+</button>
+<button type="button" aria-pressed="{{isBlue}}" onClick="{{pickBlue}}" style="padding: 14px; border-radius: 14px; border: {{blueRing}}; background: #EEF1F3; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; cursor: pointer; font-family: inherit">
+<span style="display: flex; gap: 6px"><span style="width: 22px; height: 22px; border-radius: 50%; background: #3C4D5C; display: block"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #6D8CAA; display: block"></span><span style="width: 22px; height: 22px; border-radius: 50%; background: #9A6560; display: block"></span></span>
+<span style="font-size: 15px; font-weight: 700; color: #3C4D5C">莫蘭迪藍</span>
+</button>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<label for="bio" style="font-size: 13px; color: {{c.muted}}">我的背景（AI 出題和修改時會參考）</label>
+<textarea id="bio" style="height: 150px; box-sizing: border-box; resize: none; border: 1px solid {{c.input}}; border-radius: 14px; background: #FFFFFF; padding: 14px; font-family: inherit; font-size: 15px; line-height: 1.65; color: {{c.ink}}">電子表單流程系統開發 [年資] 年，負責簽核流程設計與維護，熟悉 MSSQL。英文：[程度]。日文：會話可以，書寫學習中。</textarea>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 13px; color: {{c.muted}}">每日新題</div>
+<div style="background: #FFFFFF; border: 1px solid {{c.border}}; border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 700">每天幾題</span><span style="font-size: 13px; color: {{c.muted}}">1 到 10 題</span></div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" aria-label="減少每日題數" onClick="{{decTotal}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid {{c.input}}; background: #FFFFFF; color: {{c.ink}}; font-size: 20px; cursor: pointer">−</button>
+<span style="min-width: 24px; text-align: center; font-size: 22px; font-weight: 700">{{total}}</span>
+<button type="button" aria-label="增加每日題數" onClick="{{incTotal}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid {{c.input}}; background: #FFFFFF; color: {{c.ink}}; font-size: 20px; cursor: pointer">+</button>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 700">每日複習上限</span><span style="font-size: 13px; color: {{c.muted}}">超過的自動延到隔天</span></div>
+<div style="display: flex; align-items: center; gap: 12px">
+<button type="button" aria-label="降低複習上限" onClick="{{decCap}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid {{c.input}}; background: #FFFFFF; color: {{c.ink}}; font-size: 20px; cursor: pointer">−</button>
+<span style="min-width: 24px; text-align: center; font-size: 22px; font-weight: 700">{{cap}}</span>
+<button type="button" aria-label="提高複習上限" onClick="{{incCap}}" style="width: 44px; height: 44px; border-radius: 12px; border: 1px solid {{c.input}}; background: #FFFFFF; color: {{c.ink}}; font-size: 20px; cursor: pointer">+</button>
+</div>
+</div>
+<div style="font-size: 13px; line-height: 1.6; color: {{c.muted}}; background: {{c.neutral}}; border-radius: 10px; padding: 10px 12px">養成習慣後，每天約會有 {{reviewEst}} 個複習項目（英文重寫＋日文翻卡）。{{capNote}}</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 13px; color: {{c.muted}}">日文與提醒</div>
+<div style="background: #FFFFFF; border: 1px solid {{c.border}}; border-radius: 14px; display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; padding: 0 16px; border-bottom: 1px solid {{c.border}}">
+<span style="font-size: 15px">預設顯示注音</span>
+<button type="button" role="switch" aria-checked="{{furi}}" aria-label="預設顯示注音" onClick="{{toggleFuri}}" style="width: 52px; height: 32px; border-radius: 16px; border: 0; padding: 4px; background: {{furiTrack}}; display: flex; justify-content: {{furiAlign}}; cursor: pointer"><span style="width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; display: block"></span></button>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; padding: 0 16px; border-bottom: 1px solid {{c.border}}">
+<span style="font-size: 15px">朗讀速度</span>
+<div style="display: flex; gap: 4px; padding: 4px; border-radius: 12px; background: {{c.neutral}}">
+<button type="button" aria-pressed="{{slow}}" onClick="{{pickSlow}}" style="height: 36px; min-width: 56px; border-radius: 9px; border: 0; background: {{slowBg}}; color: {{c.ink}}; font-family: inherit; font-size: 14px; cursor: pointer">0.8x</button>
+<button type="button" aria-pressed="{{normal}}" onClick="{{pickNormal}}" style="height: 36px; min-width: 56px; border-radius: 9px; border: 0; background: {{normalBg}}; color: {{c.ink}}; font-family: inherit; font-size: 14px; cursor: pointer">1.0x</button>
+</div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; min-height: 60px; padding: 0 16px">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">每日練習提醒</span><span style="font-size: 13px; color: {{c.muted}}">每天 21:00</span></div>
+<button type="button" role="switch" aria-checked="{{remind}}" aria-label="每日練習提醒" onClick="{{toggleRemind}}" style="width: 52px; height: 32px; border-radius: 16px; border: 0; padding: 4px; background: {{remindTrack}}; display: flex; justify-content: {{remindAlign}}; cursor: pointer"><span style="width: 24px; height: 24px; border-radius: 50%; background: #FFFFFF; display: block"></span></button>
+</div>
+</div>
+</section>
+
+<button type="button" style="height: 52px; border-radius: 12px; border: 1.5px solid {{c.input}}; background: transparent; color: {{c.jpText}}; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer">登出</button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startTheme":{"editor":"enum","options":["ink","blue"],"default":"ink"},"$preview":{"width":390,"height":1660}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { theme: null, total: 5, eng: 3, cap: 30, furi: true, remind: true, speed: 'slow' };
+  }
+  renderVals() {
+    const P = {
+      ink: { bg: '#F5F2EA', border: '#E4DED2', input: '#D6CFC1', ink: '#1F2328', muted: '#5E6470', accent: '#2F45A0', neutral: '#ECE8DF', jp: '#B8432B', jpText: '#8E2F1C', off: '#C9C2B4' },
+      blue: { bg: '#EEF1F3', border: '#D9DFE4', input: '#C9D2D9', ink: '#3C4D5C', muted: '#5F6E7B', accent: '#6D8CAA', neutral: '#E1E7EC', jp: '#9A6560', jpText: '#84504B', off: '#B9C3CB' }
+    };
+    const start = this.props.startTheme ?? 'ink';
+    const theme = this.state.theme ?? start;
+    const c = P[theme];
+    const s = this.state;
+    const ring = (on) => on ? '2px solid ' + c.ink : '2px solid transparent';
+    return {
+      c,
+      homeHref: start === 'blue' ? 'Main-blue.dc.html' : 'Main.dc.html',
+      isInk: theme === 'ink', isBlue: theme === 'blue',
+      inkRing: ring(theme === 'ink'), blueRing: ring(theme === 'blue'),
+      pickInk: () => this.setState({ theme: 'ink' }),
+      pickBlue: () => this.setState({ theme: 'blue' }),
+      total: s.total, eng: s.eng, ground: s.total - s.eng,
+      engPct: Math.round(s.eng / s.total * 100) + '%',
+      reviewEst: s.total * 10,
+      cap: s.cap,
+      capNote: s.total * 10 > s.cap ? '超過上限 ' + s.cap + ' 的部分會延到隔天。' : '在你的上限內。',
+      incCap: () => this.setState({ cap: Math.min(100, s.cap + 10) }),
+      decCap: () => this.setState({ cap: Math.max(10, s.cap - 10) }),
+      incTotal: () => this.setState({ total: Math.min(10, s.total + 1) }),
+      decTotal: () => { const t = Math.max(1, s.total - 1); this.setState({ total: t, eng: Math.min(s.eng, t) }); },
+      inc: () => this.setState({ eng: Math.min(s.total, s.eng + 1) }),
+      dec: () => this.setState({ eng: Math.max(0, s.eng - 1) }),
+      furi: s.furi, furiTrack: s.furi ? c.ink : c.off, furiAlign: s.furi ? 'flex-end' : 'flex-start',
+      toggleFuri: () => this.setState({ furi: !s.furi }),
+      remind: s.remind, remindTrack: s.remind ? c.ink : c.off, remindAlign: s.remind ? 'flex-end' : 'flex-start',
+      toggleRemind: () => this.setState({ remind: !s.remind }),
+      slow: s.speed === 'slow', normal: s.speed === 'normal',
+      slowBg: s.speed === 'slow' ? '#FFFFFF' : 'transparent',
+      normalBg: s.speed === 'normal' ? '#FFFFFF' : 'transparent',
+      pickSlow: () => this.setState({ speed: 'slow' }),
+      pickNormal: () => this.setState({ speed: 'normal' })
+    };
+  }
+}
+</script>
+</body>
+</html>

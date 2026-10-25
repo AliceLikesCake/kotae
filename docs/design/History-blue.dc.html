@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>練習紀錄（莫蘭迪藍）</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+JP:wght@500&amp;family=Source+Serif+4:opsz,wght@8..60,500&amp;display=swap">
+<style>
+body{margin:0;background:#EEF1F3}
+a{color:#6D8CAA}a:hover{color:#3F5F7E}
+</style>
+</helmet>
+<div style="width: 390px; height: 1320px; position: relative; box-sizing: border-box; background: #EEF1F3; font-family: 'Microsoft JhengHei', '微軟正黑體', 'PingFang TC', 'Noto Sans TC', sans-serif; color: #3C4D5C; overflow: hidden">
+<div style="padding: 56px 24px 100px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end">
+<h1 style="margin: 0; font-size: 28px; font-weight: 700">練習紀錄</h1>
+<div style="font-size: 13px; color: #5F6E7B">共 42 題 · 已熟記 18 題</div>
+</div>
+<label style="display: flex; align-items: center; gap: 10px; height: 46px; box-sizing: border-box; padding: 0 14px; border: 1px solid #C9D2D9; border-radius: 12px; background: #FFFFFF; color: #5F6E7B"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4"></path></svg><input type="search" placeholder="搜尋題目或關鍵字" aria-label="搜尋題目" style="flex-grow: 1; border: 0; outline: none; background: transparent; font-family: inherit; font-size: 15px; color: #3C4D5C"></label>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; color: #5F6E7B">職缺</div>
+<div style="display: flex; gap: 8px">
+<button type="button" aria-pressed="true" style="height: 36px; padding: 0 14px; border-radius: 999px; border: 0; background: #3C4D5C; color: #FFFFFF; font-family: inherit; font-size: 14px; cursor: pointer">全部</button>
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D2D9; background: #FFFFFF; color: #3C4D5C; font-family: inherit; font-size: 14px; cursor: pointer">工程師</button>
+<button type="button" aria-pressed="false" style="height: 36px; padding: 0 14px; border-radius: 999px; border: 1px solid #C9D2D9; background: #FFFFFF; color: #3C4D5C; font-family: inherit; font-size: 14px; cursor: pointer">共通</button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; color: #5F6E7B">題型</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<button type="button" aria-pressed="true" style="height: 60px; border-radius: 12px; border: 0; background: #3C4D5C; color: #FFFFFF; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">42</span><span style="font-size: 12px">全部</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">3</span><span style="font-size: 12px; color: #4E5C69">自我介紹</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">5</span><span style="font-size: 12px; color: #4E5C69">志望動機</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">12</span><span style="font-size: 12px; color: #4E5C69">經驗題</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">9</span><span style="font-size: 12px; color: #4E5C69">情境題</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">6</span><span style="font-size: 12px; color: #4E5C69">技術題</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">5</span><span style="font-size: 12px; color: #4E5C69">個人特質</span></button>
+<button type="button" aria-pressed="false" style="height: 60px; border-radius: 12px; border: 1px solid #D9DFE4; background: #FFFFFF; color: #3C4D5C; font-family: inherit; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; cursor: pointer"><span style="font-size: 18px; font-weight: 700">2</span><span style="font-size: 12px; color: #4E5C69">反問題</span></button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 13px; color: #5F6E7B">主題</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">流程改善 4</span>
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">團隊合作 6</span>
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">客訴處理 5</span>
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">多語溝通 3</span>
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">學習能力 4</span>
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">公司研究 5</span>
+<span style="font-size: 13px; padding: 5px 11px; border-radius: 8px; background: #E1E7EC; color: #3C4D5C">壓力管理 3</span>
+</div>
+</div>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px">
+<div style="font-size: 16px; font-weight: 700">題目列表</div>
+<button type="button" style="height: 36px; padding: 0 12px; border-radius: 10px; border: 1px solid #C9D2D9; background: #FFFFFF; color: #3C4D5C; font-family: inherit; font-size: 13px; cursor: pointer">最近練習 ▾</button>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<a href="Feedback-blue.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #D9DFE4; border-radius: 14px; text-decoration: none; color: #3C4D5C">
+<div style="font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.45">Tell me about a time you improved a business process at work.</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #3C4D5C; color: #FFFFFF">經驗題</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #E1E7EC">流程改善</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #DCE6EF; color: #3F5F7E">工程師</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5F6E7B"><span>英 ●●●○　日 ●●○○</span><span>9/27 · 練習 3 次</span></div>
+</a>
+<a href="Feedback-blue.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #D9DFE4; border-radius: 14px; text-decoration: none; color: #3C4D5C">
+<div style="font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.45">How would you help a passenger who missed their flight and is very upset?</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #3C4D5C; color: #FFFFFF">情境題</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #E1E7EC">客訴處理</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #F1E4E2; color: #84504B">共通</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5F6E7B"><span>英 ●●○○　日 ●○○○</span><span>9/28 · 練習 2 次</span></div>
+</a>
+<a href="Feedback-blue.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #D9DFE4; border-radius: 14px; text-decoration: none; color: #3C4D5C">
+<div style="font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.45">Why do you want to work for us?</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #3C4D5C; color: #FFFFFF">志望動機</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #E1E7EC">公司研究</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #F1E4E2; color: #84504B">共通</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5F6E7B"><span>英 ●●●●　日 ●●●○</span><span>9/22 · 練習 5 次</span></div>
+</a>
+<a href="Feedback-blue.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #FFFFFF; border: 1px solid #D9DFE4; border-radius: 14px; text-decoration: none; color: #3C4D5C">
+<div style="font-family: 'Source Serif 4', serif; font-size: 16px; line-height: 1.45">How do you keep up with new technologies?</div>
+<div style="display: flex; gap: 6px; flex-wrap: wrap"><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #3C4D5C; color: #FFFFFF">個人特質</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #E1E7EC">學習能力</span><span style="font-size: 12px; padding: 3px 8px; border-radius: 6px; background: #DCE6EF; color: #3F5F7E">工程師</span></div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #5F6E7B"><span>英 ●●○○　日 ●●○○</span><span>9/20 · 練習 2 次</span></div>
+</a>
+</div>
+</div>
+<nav style="position: absolute; left: 0; right: 0; bottom: 0; height: 76px; box-sizing: border-box; padding: 6px 16px 14px; background: #FFFFFF; border-top: 1px solid #D9DFE4; display: flex; justify-content: space-around; align-items: center">
+<a href="Main-blue.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 64px; min-height: 48px; text-decoration: none; color: #5F6E7B; font-size: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"></path></svg>今日</a>
+<a href="Practice-blue.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 64px; min-height: 48px; text-decoration: none; color: #5F6E7B; font-size: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"></path></svg>練習</a>
+<a href="Review-blue.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 64px; min-height: 48px; text-decoration: none; color: #5F6E7B; font-size: 12px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"></path></svg>複習</a>
+<a href="History-blue.dc.html" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 64px; min-height: 48px; text-decoration: none; color: #3C4D5C; font-size: 12px; font-weight: 700"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"></path></svg>紀錄</a>
+</nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1320}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

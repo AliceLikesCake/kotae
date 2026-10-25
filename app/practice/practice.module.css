@@ -1,0 +1,249 @@
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 38px 24px calc(96px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== 進度 ===== */
+.progress {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+}
+
+.barDone {
+  background: var(--ink);
+}
+
+/* ===== 題目 ===== */
+.tag {
+  align-self: flex-start;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.tagEn {
+  background: var(--en-soft);
+  color: var(--en-text);
+}
+
+.question {
+  margin: 0;
+  font-family: var(--font-en-stack);
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.translation {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--warn);
+  background: var(--warn-soft);
+  border-radius: 10px;
+  padding: 10px 12px;
+  line-height: 1.6;
+}
+
+/* ===== 作答 ===== */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.textarea {
+  height: 220px;
+  resize: none;
+  border: 1px solid var(--input);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 14px;
+  font-family: var(--font-en-stack);
+  font-size: 16px; /* 16px 以上 iOS 才不會自動放大 */
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.metaRight {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 「清空」：文字按鈕，點擊範圍維持 44px 高 */
+.clear {
+  height: 44px;
+  margin: -12px -10px -12px 0;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.clear:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.undo {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.error {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ja-text);
+  background: var(--ja-soft);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.submit:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ===== 出題中 / 出題失敗 / 今天都完成了 ===== */
+.status {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+
+.statusTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.statusText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border: 1.5px solid var(--ink);
+  border-radius: 12px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.outline:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.skeleton span {
+  height: 12px;
+  border-radius: 6px;
+  background: var(--neutral);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton span:nth-child(2) {
+  width: 85%;
+}
+
+.skeleton span:nth-child(3) {
+  width: 60%;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton span {
+    animation: none;
+  }
+}

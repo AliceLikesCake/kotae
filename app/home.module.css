@@ -1,0 +1,202 @@
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 46px 24px calc(96px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ===== 標題區 ===== */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.settings {
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tag {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.tagEn {
+  background: var(--en-soft);
+  color: var(--en-text);
+}
+
+/* ===== 卡片共用 ===== */
+.card {
+  border-radius: 18px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== 今日複習（深色卡片） ===== */
+.hero {
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+.count {
+  font-size: 32px;
+  font-family: var(--font-en-stack);
+}
+
+.countUnit {
+  font-size: 14px;
+  margin-left: 4px;
+  font-family: var(--font-zh);
+}
+
+.heroText {
+  font-size: 14px;
+  color: var(--hero-muted);
+  line-height: 1.6;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--hero-chip);
+  color: var(--hero-chip-text);
+}
+
+.heroButton {
+  background: #FFFFFF;
+  color: var(--ink);
+}
+
+/* ===== 今日新題 ===== */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.muted {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.progress {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+}
+
+.barDone {
+  background: var(--ink);
+}
+
+.outlineButton {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+}
+
+/* ===== 本週 ===== */
+.week {
+  padding: 18px 22px;
+  gap: 12px;
+}
+
+.weekHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.weekTitle {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+}

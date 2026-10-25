@@ -1,0 +1,77 @@
+/* ===== 色調：米白墨色（預設） ===== */
+:root,
+[data-theme="ink"] {
+  --bg: #F5F2EA;
+  --surface: #FFFFFF;
+  --ink: #1F2328;        /* 主色 / 文字 */
+  --ink-soft: #474C55;   /* 說明文字（比主色淡、比次要文字深） */
+  --muted: #5E6470;      /* 次要文字 */
+  --border: #E4DED2;
+  --input: #D6CFC1;
+  --neutral: #ECE8DF;
+  --switch-off: #C9C2B4; /* 開關關閉時的底色 */
+  --logo: #1F2328;       /* Logo 底色 */
+  --hero-muted: #D4D7DD;     /* 深色卡片：說明文字 */
+  --hero-chip: #343A44;      /* 深色卡片：標籤底 */
+  --hero-chip-text: #E9EBEF; /* 深色卡片：標籤文字 */
+  --hero-text: #F3F4F6;      /* 深色卡片：內文 */
+  --hero-line: #3A414C;      /* 深色卡片：分隔線 */
+  --en: #2F45A0;  --en-soft: #E7EAF6;  --en-text: #24398F;   /* 英文強調 */
+  --ja: #B8432B;  --ja-soft: #F8E7E2;  --ja-text: #8E2F1C;   /* 日文強調 */
+  --warn: #6E4A0E; --warn-soft: #F4EAD6;                     /* 模糊 / 提醒 */
+}
+
+/* ===== 色調：莫蘭迪藍 ===== */
+[data-theme="blue"] {
+  --bg: #EEF1F3;
+  --surface: #FFFFFF;
+  --ink: #3C4D5C;
+  --ink-soft: #4E5C69;
+  --muted: #5F6E7B;
+  --border: #D9DFE4;
+  --input: #C9D2D9;
+  --neutral: #E1E7EC;
+  --switch-off: #B9C3CB;
+  --logo: #4E667C;
+  --hero-muted: #DCE3E9;
+  --hero-chip: #536576;
+  --hero-chip-text: #EEF2F5;
+  --hero-text: #F4F7F9;
+  --hero-line: #5A6B7B;
+  --en: #6D8CAA;  --en-soft: #DCE6EF;  --en-text: #3F5F7E;
+  --ja: #9A6560;  --ja-soft: #F1E4E2;  --ja-text: #84504B;
+  --warn: #72603F; --warn-soft: #EDE7DB;
+}
+
+/* ===== 字型 ===== */
+:root {
+  --font-zh: 'Microsoft JhengHei', '微軟正黑體', 'PingFang TC', 'Noto Sans TC', sans-serif;
+
+  --font-en-stack: var(--font-en), Georgia, serif;
+  --font-ja-stack: var(--font-ja), 'Hiragino Mincho ProN', serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-zh);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--en); }
+
+/* 有視窗打開時，背後的頁面不要跟著捲動 */
+html:has(dialog[open]) { overflow: hidden; }
+
+.en { font-family: var(--font-en-stack); }
+.ja { font-family: var(--font-ja-stack); }
+
+/* AI 文法修正：刪除 / 新增 */
+del { color: var(--ja-text); background: var(--ja-soft); text-decoration: line-through; padding: 0 2px; border-radius: 3px; }
+ins { color: var(--en-text); background: var(--en-soft); text-decoration: none; padding: 0 2px; border-radius: 3px; }
+
+/* 日文注音 */
+rt { font-size: 10px; color: var(--ja-text); font-family: var(--font-zh); }

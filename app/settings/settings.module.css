@@ -1,0 +1,290 @@
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 38px 24px calc(40px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionLabel {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== 主題 ===== */
+.themes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.theme {
+  padding: 14px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.swatches {
+  display: flex;
+  gap: 6px;
+}
+
+.swatch {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
+.themeName {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ===== 我的背景 ===== */
+.bio {
+  height: 150px;
+  resize: none;
+  border: 1px solid var(--input);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 14px;
+  font-family: inherit;
+  font-size: 16px; /* 16px 以上 iOS 才不會自動放大 */
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.bio:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+/* ===== 白底群組 ===== */
+.group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.padded {
+  padding: 16px;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 60px;
+  padding: 0 16px;
+  font-size: 15px;
+}
+
+.row + .row {
+  border-top: 1px solid var(--border);
+}
+
+.rowText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 15px;
+}
+
+.rowTitle {
+  font-weight: 700;
+}
+
+.rowSub {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== 數字調整 ===== */
+.stepRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stepButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--input);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.stepButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.stepValue {
+  min-width: 28px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.note {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  background: var(--neutral);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.regenerate {
+  height: 46px;
+  border-radius: 12px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.regenerate:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ja-text);
+  background: var(--ja-soft);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ===== 開關 ===== */
+.switch {
+  flex-shrink: 0;
+  width: 52px;
+  height: 32px;
+  border-radius: 16px;
+  border: 0;
+  padding: 4px;
+  background: var(--switch-off);
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.switch[aria-checked="true"] {
+  background: var(--ink);
+  justify-content: flex-end;
+}
+
+.knob {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+
+/* ===== 朗讀速度 ===== */
+.segmented {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--neutral);
+}
+
+.segment {
+  height: 36px;
+  min-width: 56px;
+  border-radius: 9px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.segment[aria-pressed="true"] {
+  background: var(--surface);
+}
+
+/* ===== AI 用量 ===== */
+.cost {
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.usageNote {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ===== 登出 ===== */
+.logoutForm {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.logout {
+  height: 52px;
+  border-radius: 12px;
+  border: 1.5px solid var(--input);
+  background: transparent;
+  color: var(--ja-text);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.about {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+}

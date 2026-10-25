@@ -1,0 +1,323 @@
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 46px 24px calc(100px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.summary {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ===== 搜尋 ===== */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--input);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--muted);
+}
+
+.search:focus-within {
+  border-color: var(--ink);
+}
+
+.searchInput {
+  flex-grow: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 16px; /* 16px 以上 iOS 才不會自動放大 */
+  color: var(--ink);
+}
+
+/* ===== 篩選 ===== */
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filterLabel {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--input);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.types {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.type {
+  height: 60px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.typeCount {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.typeName {
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topic {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 5px 11px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--neutral);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* 選中的篩選 */
+.pill[aria-pressed="true"],
+.type[aria-pressed="true"],
+.topic[aria-pressed="true"] {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+.type[aria-pressed="true"] .typeName {
+  color: #FFFFFF;
+}
+
+/* ===== 題目列表 ===== */
+.listHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.listTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ===== 排序選單 ===== */
+.sortWrap {
+  position: relative;
+}
+
+.sort {
+  height: 36px;
+  padding: 0 10px 0 12px;
+  border-radius: 10px;
+  border: 1px solid var(--input);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.sort[aria-expanded="true"] {
+  border-color: var(--ink);
+}
+
+.sortChevron {
+  color: var(--muted);
+  transition: transform 0.15s;
+}
+
+.sort[aria-expanded="true"] .sortChevron {
+  transform: rotate(180deg);
+}
+
+.sortMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 10;
+  min-width: 148px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: menuIn 0.12s ease-out;
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sortMenu {
+    animation: none;
+  }
+}
+
+.sortOption {
+  height: 40px;
+  padding: 0 12px 0 8px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.sortOption:hover,
+.sortOption:focus-visible {
+  outline: none;
+  background: var(--neutral);
+}
+
+.sortOption[aria-checked="true"] {
+  font-weight: 700;
+}
+
+.sortCheck {
+  flex-shrink: 0;
+  visibility: hidden;
+}
+
+.sortOption[aria-checked="true"] .sortCheck {
+  visibility: visible;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty {
+  padding: 28px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.item:hover {
+  border-color: var(--input);
+}
+
+.itemQuestion {
+  font-family: var(--font-en-stack);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.itemTags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.itemTag {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--neutral);
+}
+
+.tagType {
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+.tagEn {
+  background: var(--en-soft);
+  color: var(--en-text);
+}
+
+.itemMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}

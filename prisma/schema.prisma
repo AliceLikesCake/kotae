@@ -1,0 +1,152 @@
+// Kotae 的資料表定義。改完後執行 `npx prisma migrate dev --name 說明`，
+// Prisma 會產生對應的 SQL（在 prisma/migrations/），並套用到資料庫。
+//
+// 資料庫是 PostgreSQL（2026-10-18 從 SQL Server 換過來）。沿用原本的做法：
+// - 固定選項（職缺、語言、結果）用字串存，可用的值寫在註解，TypeScript 那邊再限制。
+// - 結構化的內容（文法修正、注音等）存成 JSON 字串，欄位名稱以 Json 結尾。
+// - String 沒有標長度的是 TEXT（不限長度，相當於 SQL Server 的 NVARCHAR(MAX)）；PostgreSQL 的字串都是 Unicode，不用分 N。
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// 使用者設定（只有一位使用者，所以固定只有 Id = 1 這一筆）
+model Profile {
+  id             Int      @id @default(1)
+  /// 我的背景（AI 出題和修改時會參考）
+  bio            String   @default("")
+  /// 每天幾題（1–10）
+  dailyTotal     Int      @default(5)
+  /// 每日複習上限（10–100）
+  reviewCap      Int      @default(30)
+  /// ink | blue
+  theme          String   @default("ink") @db.VarChar(10)
+  /// 日文預設顯示注音
+  furigana       Boolean  @default(true)
+  /// 日文朗讀速度：0.8 | 1
+  speechRate     Decimal  @default(0.8) @db.Decimal(3, 2)
+  /// 每日練習提醒（每天 21:00）
+  reminder       Boolean  @default(true)
+  updatedAt      DateTime @updatedAt
+}
+
+/// 題目（AI 每天出題）
+model Question {
+  id         Int      @id @default(autoincrement())
+  /// engineer＝外商工程師題 | common＝通用題
+  track      String   @db.VarChar(10)
+  /// 自我介紹、志望動機、經驗題、情境題、技術題、個人特質、反問題
+  type       String   @db.VarChar(10)
+  /// AI 自動標記的主題，例如「流程改善」
+  topic      String   @db.VarChar(50)
+  en         String  
+  zh         String  
+  hint       String   @default("")
+  /// 出題日期（哪一天的題目）
+  date       DateTime @db.Date
+  createdAt  DateTime @default(now())
+
+  answer          Answer?
+  reviewSchedules ReviewSchedule[]
+  reviewLogs      ReviewLog[]
+
+  @@index([date])
+}
+
+/// 作答與 AI 回饋（每題一筆，重新作答會覆蓋）
+model Answer {
+  id         Int      @id @default(autoincrement())
+  questionId Int      @unique
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  /// 初稿：送出給 AI 修改的英文回答（還沒送出過時是 NULL）
+  draft        String? 
+  /// 還沒送出的草稿（作答頁自動儲存，送出後清掉）
+  pendingDraft String? 
+
+  // ----- AI 回饋（送出作答後產生） -----
+  /// ai | demo
+  feedbackSource  String?  @db.VarChar(10)
+  /// 總分 0–100（紀錄頁、統計用）
+  scoreTotal      Int?
+  /// { total, content, grammar, structure, summary }
+  scoreJson       String? 
+  /// 文法修正版：CorrectionPart[]
+  correctedJson   String? 
+  /// 修改說明：string[]
+  notesJson       String? 
+  /// 面試官想聽什麼：{ audience, focus, points, keywords }
+  interviewerJson String? 
+  /// 面試優化版英文
+  polished        String? 
+  /// 優化版為什麼比較好
+  whyBetter       String? 
+
+  // ----- 日文版（第一次打開日文版頁面時產生） -----
+  /// ai | demo
+  japaneseSource   String? @db.VarChar(10)
+  /// 日文翻譯（含注音）：RubyPart[]
+  japaneseJson     String?
+  /// 重點句型：{ pattern, explanation }[]
+  patternsJson     String?
+  /// 使用者手動修正的讀音
+  readingFixesJson String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+/// 複習排程（每題英文、日文各一筆）
+model ReviewSchedule {
+  id         Int      @id @default(autoincrement())
+  questionId Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  /// en | ja
+  lang       String   @db.VarChar(2)
+  /// 下次複習日
+  dueDate    DateTime @db.Date
+  /// 目前間隔（天）：1、3、7、14、30
+  interval   Int      @default(1)
+
+  @@unique([questionId, lang])
+  @@index([dueDate])
+}
+
+/// 複習紀錄（每複習一次一筆）
+model ReviewLog {
+  id         Int      @id @default(autoincrement())
+  questionId Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  /// en | ja
+  lang       String   @db.VarChar(2)
+  /// 英文重寫的內容（日文翻卡沒有）
+  rewrite    String? 
+  /// 英文重寫的 AI 分數 0–100（日文翻卡沒有）
+  aiScore    Int?
+  /// 最終結果：forgot | fuzzy | remembered
+  result     String   @db.VarChar(10)
+  reviewedAt DateTime @default(now())
+
+  @@index([questionId])
+}
+
+/// AI 用量紀錄（每呼叫一次 Claude 一筆，設定頁顯示今天 / 本月 / 累計）
+model AiUsage {
+  id           Int      @id @default(autoincrement())
+  at           DateTime @default(now())
+  /// 例如「AI 回饋 7」
+  label        String   @db.VarChar(100)
+  model        String   @db.VarChar(50)
+  inputTokens  Int
+  outputTokens Int
+  /// 估算費用（美金）
+  cost         Decimal  @db.Decimal(10, 6)
+  seconds      Decimal  @db.Decimal(6, 1)
+
+  @@index([at])
+}

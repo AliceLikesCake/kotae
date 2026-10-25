@@ -1,0 +1,206 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Feedback-blue.dc.html": {
+      "h": 1600,
+      "is_interactive": true,
+      "title": "3 AI 回饋（藍）",
+      "w": 390,
+      "x": 940,
+      "y": 1980
+    },
+    "Feedback.dc.html": {
+      "h": 1600,
+      "is_interactive": true,
+      "title": "3 AI 回饋",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "History-blue.dc.html": {
+      "h": 1320,
+      "is_interactive": true,
+      "title": "6 練習紀錄（藍）",
+      "w": 390,
+      "x": 2350,
+      "y": 1980
+    },
+    "History.dc.html": {
+      "h": 1320,
+      "is_interactive": true,
+      "title": "6 練習紀錄",
+      "w": 390,
+      "x": 2350,
+      "y": 0
+    },
+    "Japanese-blue.dc.html": {
+      "h": 1060,
+      "is_interactive": true,
+      "title": "4 日文版（藍）",
+      "w": 390,
+      "x": 1410,
+      "y": 1980
+    },
+    "Japanese.dc.html": {
+      "h": 1060,
+      "is_interactive": true,
+      "title": "4 日文版",
+      "w": 390,
+      "x": 1410,
+      "y": 0
+    },
+    "Main-blue.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1 首頁（藍）",
+      "w": 390,
+      "x": 0,
+      "y": 1980
+    },
+    "Main.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "1 首頁",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "Practice-blue.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "2 作答（藍）",
+      "w": 390,
+      "x": 470,
+      "y": 1980
+    },
+    "Practice.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "2 作答",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "Review-blue.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "title": "5 複習翻卡（藍）",
+      "w": 390,
+      "x": 1880,
+      "y": 1980
+    },
+    "Review.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "title": "5 複習翻卡",
+      "w": 390,
+      "x": 1880,
+      "y": 0
+    },
+    "Settings.dc.html": {
+      "x": 2820,
+      "y": 0,
+      "w": 390,
+      "h": 1660,
+      "title": "7 設定",
+      "is_interactive": true
+    },
+    "Settings-blue.dc.html": {
+      "x": 2820,
+      "y": 1980,
+      "w": 390,
+      "h": 1660,
+      "title": "7 設定（藍）",
+      "is_interactive": true
+    },
+    "Login.dc.html": {
+      "x": -470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "0 登入",
+      "is_interactive": true
+    },
+    "Login-blue.dc.html": {
+      "x": -470,
+      "y": 1980,
+      "w": 390,
+      "h": 844,
+      "title": "0 登入（藍）",
+      "is_interactive": true
+    },
+    "Logo.dc.html": {
+      "x": -1510,
+      "y": 0,
+      "w": 960,
+      "h": 560,
+      "title": "App 標誌"
+    },
+    "ReviewEn.dc.html": {
+      "x": 3290,
+      "y": 0,
+      "w": 390,
+      "h": 1480,
+      "title": "5b 英文複習結果",
+      "is_interactive": true
+    },
+    "ReviewEn-blue.dc.html": {
+      "x": 3290,
+      "y": 1980,
+      "w": 390,
+      "h": 1480,
+      "title": "5b 英文複習結果（藍）",
+      "is_interactive": true
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-09-30T09:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "blue": {
+      "kind": "title1",
+      "maxW": 4150,
+      "text": "莫蘭迪藍版本",
+      "w": 240,
+      "x": -470,
+      "y": 1720
+    },
+    "flow": {
+      "kind": "title1",
+      "maxW": 4150,
+      "text": "原版：米白 × 墨色",
+      "w": 240,
+      "x": -470,
+      "y": -260
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Practice.dc.html",
+    "Feedback.dc.html",
+    "Japanese.dc.html",
+    "Review.dc.html",
+    "History.dc.html",
+    "Main-blue.dc.html",
+    "Practice-blue.dc.html",
+    "Feedback-blue.dc.html",
+    "Japanese-blue.dc.html",
+    "Review-blue.dc.html",
+    "History-blue.dc.html",
+    "Settings.dc.html",
+    "Settings-blue.dc.html",
+    "Logo.dc.html",
+    "Login.dc.html",
+    "Login-blue.dc.html",
+    "ReviewEn.dc.html",
+    "ReviewEn-blue.dc.html"
+  ],
+  "pages": [],
+  "title": "面試練習 App 畫面設計"
+}

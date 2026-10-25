@@ -1,0 +1,321 @@
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 38px 24px calc(40px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== 卡片共用 ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ===== 示範內容提示 ===== */
+.demo {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--warn);
+  background: var(--warn-soft);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.demo code {
+  font-size: 12px;
+}
+
+.noNotes {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* ===== 評分（深色卡片，和複習頁一致） ===== */
+.scoreCard {
+  background: var(--ink);
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 76px;
+}
+
+.scoreNum {
+  font-family: var(--font-en-stack);
+  font-size: 44px;
+  line-height: 1;
+}
+
+.scoreUnit {
+  font-size: 12px;
+  color: var(--hero-muted);
+  margin-top: 4px;
+}
+
+.scoreBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.dimensions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 13px;
+  color: var(--hero-chip-text);
+}
+
+.dimension {
+  white-space: nowrap;
+}
+
+.dots {
+  letter-spacing: 1px;
+}
+
+.scoreSummary {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--hero-text);
+}
+
+/* ===== 文法修正 ===== */
+.corrected {
+  margin: 0;
+  font-family: var(--font-en-stack);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+/* ===== 修改說明 ===== */
+.notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.noteNum {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--en-soft);
+  color: var(--en-text);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== 面試官想聽什麼 ===== */
+.interviewer {
+  gap: 14px;
+}
+
+.pill {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.pillEn {
+  background: var(--en-soft);
+  color: var(--en-text);
+}
+
+.focus {
+  font-size: 14px;
+  line-height: 1.7;
+  background: var(--neutral);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.point {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.covered,
+.improve {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.covered {
+  background: var(--en-soft);
+  color: var(--en-text);
+}
+
+.improve {
+  background: var(--warn-soft);
+  color: var(--warn);
+}
+
+.pointText {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.keywords {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.keywords .small {
+  font-size: 13px;
+}
+
+.keywordList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.keyword {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--neutral);
+}
+
+/* ===== 面試優化版（深色卡片） ===== */
+.polished {
+  background: var(--ink);
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.speak {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--hero-chip);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.speak:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.polishedText {
+  margin: 0;
+  font-family: var(--font-en-stack);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--hero-text);
+}
+
+.whyBetter {
+  border-top: 1px solid var(--hero-line);
+  padding-top: 12px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--hero-muted);
+}
+
+/* ===== 下方按鈕 ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.outlineButton {
+  flex-grow: 1;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.jaButton {
+  flex-grow: 2;
+  background: var(--ja);
+  color: #FFFFFF;
+}

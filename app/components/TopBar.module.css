@@ -1,0 +1,24 @@
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back {
+  width: 44px;
+  height: 44px;
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.spacer {
+  width: 44px;
+}

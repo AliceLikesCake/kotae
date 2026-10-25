@@ -1,0 +1,340 @@
+.page {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 38px 24px calc(40px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== 示範內容提示、翻譯中、錯誤 ===== */
+.demo {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--warn);
+  background: var(--warn-soft);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.demo code {
+  font-size: 12px;
+}
+
+.status {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.statusTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.statusText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.errorText {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ja-text);
+}
+
+.retry {
+  margin-top: 6px;
+  height: 44px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* 等待時的骨架：用淡色長條暗示文字的位置 */
+.skeleton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.skeleton span {
+  display: block;
+  height: 14px;
+  border-radius: 7px;
+  background: var(--neutral);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton span:nth-child(2) {
+  width: 85%;
+}
+
+.skeleton span:nth-child(3) {
+  width: 60%;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton span {
+    animation: none;
+  }
+}
+
+/* 注音關閉 */
+.hideRuby rt {
+  display: none;
+}
+
+/* ===== 注音開關 ===== */
+.toggle {
+  height: 36px;
+  padding: 0 6px 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--input);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.switch {
+  position: relative;
+  display: block;
+  width: 34px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--input);
+  transition: background 0.15s;
+}
+
+.knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  transition: transform 0.15s;
+}
+
+.toggle[aria-pressed="true"] .switch {
+  background: var(--ja);
+}
+
+.toggle[aria-pressed="true"] .knob {
+  transform: translateX(12px);
+}
+
+/* ===== 日文本文 ===== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text {
+  margin: 0;
+  font-family: var(--font-ja-stack);
+  font-size: 19px;
+  line-height: 2.3;
+  font-weight: 500;
+}
+
+.hideRuby .text {
+  line-height: 1.9;
+}
+
+.playRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.play {
+  flex-grow: 1;
+  height: 48px;
+  border-radius: 12px;
+  border: 0;
+  background: var(--ink);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rate {
+  height: 48px;
+  min-width: 64px;
+  border-radius: 12px;
+  border: 1px solid var(--input);
+  background: var(--surface);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* ===== 重點句型 ===== */
+.patterns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.pattern {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.patternText {
+  font-family: var(--font-ja-stack);
+  font-size: 17px;
+  color: var(--ja-text);
+}
+
+.explanation {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ===== 按鈕 ===== */
+.actions,
+.editorActions {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.outlineButton {
+  flex-grow: 1;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+
+.jaButton {
+  flex-grow: 2;
+  background: var(--ja);
+  color: #FFFFFF;
+}
+
+.saveButton {
+  flex-grow: 2;
+  border: 0;
+  background: var(--ink);
+  color: #FFFFFF;
+}
+
+/* ===== 修改讀音視窗 ===== */
+.editorList {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.editorHint {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.editorRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.editorBase {
+  flex-shrink: 0;
+  width: 88px;
+  font-family: var(--font-ja-stack);
+  font-size: 18px;
+}
+
+.editorInput {
+  flex: 1;
+  min-width: 0;
+  height: 44px;
+  border: 1px solid var(--input);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 0 12px;
+  font-family: var(--font-ja-stack);
+  font-size: 16px; /* 16px 以上 iOS 才不會自動放大 */
+  color: var(--ink);
+}
+
+.editorInput:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+.editorActions {
+  flex-shrink: 0;
+  padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+}
